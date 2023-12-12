@@ -10,16 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - run: npm ci
 
       - run: npm run build
+        env:
+          TURBO_TOKEN: 7ge18PksbY4doukiYeEYPwM0
+          TURBO_TEAM: samuel-santos-ui
 
       - name: Deploy storybook
         working-directory: ./packages/docs/
