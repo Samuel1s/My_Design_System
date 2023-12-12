@@ -27,16 +27,12 @@ const config = {
   features: {
     storyStoreV7: true,
   },
-  // viteFinal: (config, { configType }) => {
-  //   if (configType === "PRODUCTION") {
-  //     config.base = "/My_Design_System/";
-  //   }
+  viteFinal: (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      config.base = "/My_Design_System/";
+    }
 
-  //   if (configType === "DEVELOPMENT") {
-  //     config.base = "/My_Design_System/";
-  //   }
-
-  //   return config;
-  // },
+    return config;
+  },
 };
 export default config;
