@@ -18,9 +18,15 @@ const config = {
     getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
+  core: {
+    builder: "@storybook/builder-vite",
+  },
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
+  },
+  docs: {
+    autodocs: "tag",
   },
   async viteFinal(config, { configType }) {
     if (configType === "PRODUCTION") {
@@ -28,9 +34,6 @@ const config = {
     }
 
     return config;
-  },
-  docs: {
-    autodocs: "tag",
   },
 };
 export default config;
