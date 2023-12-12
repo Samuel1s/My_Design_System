@@ -18,18 +18,22 @@ const config = {
     getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
-  core: {
-    builder: "@storybook/builder-vite",
-  },
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  docs: {
-    autodocs: "tag",
+  core: {
+    builder: getAbsolutePath("@storybook/builder-vite"),
   },
-  async viteFinal(config, { configType }) {
+  features: {
+    storyStoreV7: true,
+  },
+  viteFinal: (config, { configType }) => {
     if (configType === "PRODUCTION") {
+      config.base = "/My_Design_System/";
+    }
+
+    if (configType === "DEVELOPMENT") {
       config.base = "/My_Design_System/";
     }
 
