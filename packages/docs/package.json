@@ -1,0 +1,45 @@
+{
+  "name": "packages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "storybook dev -p 6006",
+    "deploy-storybook": "storybook-to-ghpages",
+    "build": "storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.3",
+    "@storybook/addon-interactions": "^7.6.3",
+    "@storybook/addon-links": "^7.6.3",
+    "@storybook/addon-onboarding": "^1.0.9",
+    "@storybook/blocks": "^7.6.3",
+    "@storybook/react": "^7.6.3",
+    "@storybook/react-vite": "^7.6.3",
+    "@storybook/storybook-deployer": "^2.8.16",
+    "@storybook/test": "^7.6.3",
+    "@vitejs/plugin-react": "^4.2.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.3",
+    "vite": "^4.5.1"
+  },
+  "dependencies": {
+    "@ignite-ui/eslint-config": "*",
+    "@ignite-ui/react": "*",
+    "@ignite-ui/tokens": "*",
+    "@ignite-ui/ts-config": "*",
+    "@storybook/addon-a11y": "^7.6.4",
+    "polished": "^4.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

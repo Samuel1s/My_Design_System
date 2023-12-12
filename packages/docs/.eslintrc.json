@@ -1,0 +1,5 @@
+
+{
+    "extends": "@ignite-ui/eslint-config",
+    "include": ["src"]
+}
