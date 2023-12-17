@@ -1,4 +1,3 @@
-
 {
     "extends": "@samuel-santos-ui/eslint-config",
     "include": ["src"]
