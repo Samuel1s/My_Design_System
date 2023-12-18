@@ -1,15 +1,13 @@
-import { ComponentProps, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import * as TooltipRadix from '@radix-ui/react-tooltip'
 import { TooltipContent, TooltipArrow } from './styles'
 
-export interface TooltipDefaultDataProps {
+export interface TooltipProps {
     htmlElement: ReactNode,
     message: string
 }
 
-export type TooltipProps = ComponentProps<typeof TooltipRadix.Root>
-
-export function Tooltip(props: TooltipDefaultDataProps) {
+export function Tooltip(props: TooltipProps) {
   return (
     <TooltipRadix.Provider>
         <TooltipRadix.Root>

@@ -126,7 +126,7 @@ export function Calendar() {
                                 <Tooltip 
                                     htmlElement={<CalendarDay disabled={disabled}>{date.get('date')} </CalendarDay>} 
                                     message={ 
-                                        new Date(date.get('year'),date.get('month'),(date.get('date'))).toLocaleString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }) + `${disabled ? ' - Indisponível' : ' - Disponnível'}`
+                                        new Date(date.get('year'),date.get('month'),(date.get('date'))).toLocaleString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' }) + `${disabled ? ' - Indisponível' : ' - Disponível'}`
                                     }    
                                 />
                             </td>

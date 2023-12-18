@@ -1,58 +1,37 @@
-import * as React from 'react'
 import { X } from 'phosphor-react'
-import { ComponentProps } from 'react'
+import { Button } from '../Button'
+import { useState } from 'react'
 import * as ToastRadix from '@radix-ui/react-toast'
 import { ToastContent, ToastTitle, ToastDescription, ToastViewport } from './styles'
 
-export type ToastProps = ComponentProps<typeof ToastRadix.Root>
+export interface ToastProps {
+  title: string
+  handleScheduleDate: Date 
+}
 
-export function Toast(props: ToastProps) {
-  const [open, setOpen] = React.useState(false)
-  const eventDateRef = React.useRef(new Date())
-  const timerRef = React.useRef(0)
-
-  React.useEffect(() => {
-    return () => clearTimeout(timerRef.current)
-  }, [])
+export function Toast({title, handleScheduleDate }: ToastProps) {
+  const [open, setOpen] = useState(false)
 
   return (
     <ToastRadix.Provider swipeDirection="right">
-      <button
-        onClick={() => {
-          setOpen(false)
-          window.clearTimeout(timerRef.current)
-          timerRef.current = window.setTimeout(() => {
-            eventDateRef.current = scheduleDate(new Date())
-            setOpen(true)
-          }, 100)
-        }}
-      >
+      <Button onClick={() => { setOpen(true), handleScheduleDate }} >
         Add to calendar
-      </button>
+      </Button>
 
       <ToastContent open={open} onOpenChange={setOpen}>
         <div>
-            <ToastTitle>Agendamento realizado</ToastTitle>
+            <ToastTitle>{title}</ToastTitle>
             <ToastRadix.Action asChild altText="Goto schedule to undo">
-                <button><X size={24}></X></button>
+                <Button variant={'tertiary'} size={'sm'}><X size={18}></X></Button>
             </ToastRadix.Action>
         </div>
         <ToastDescription asChild>
-          <time dateTime={eventDateRef.current.toISOString()}>
-            {prettyDate(eventDateRef.current)}
+          <time>
+            { new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'short' }).format(handleScheduleDate)}
           </time>
         </ToastDescription>
       </ToastContent>
       <ToastViewport />
     </ToastRadix.Provider>
   )
-}
-
-function scheduleDate(date: any) {
-  const inOneWeek = date.setDate(date.getDate())
-  return new Date(inOneWeek)
-}
-
-function prettyDate(date: any) {
-  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'short' }).format(date)
 }

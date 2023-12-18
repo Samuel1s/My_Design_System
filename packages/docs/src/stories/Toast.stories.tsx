@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Box, BoxProps, Text, Toast, ToastProps } from '@samuel-santos-ui/react'
+import { Box, Toast, ToastProps } from '@samuel-santos-ui/react'
 
 export default {
-  title: 'Toast',
+  title: 'Alerts/Toast',
   component: Toast,
-
+  args: {},
   decorators: [
     (Story) => {
       return (
@@ -19,4 +19,9 @@ export default {
   ],
 } as Meta<ToastProps>
 
-export const Primary: StoryObj<ToastProps> = {}
+export const onButtonClick: StoryObj<ToastProps> = {
+  args: {
+    title: 'Agendamento realizado',
+    handleScheduleDate: (date: Date) => Date
+  }
+}

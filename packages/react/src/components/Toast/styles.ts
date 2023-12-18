@@ -77,7 +77,7 @@ export const ToastTitle = styled(Toast.Title, {
 export const ToastDescription= styled(Toast.Description, {
     color: '$gray200',
     fontWeight: '$regular',
-    fontSize: '$md',
+    fontSize: '$sm',
     padding: '$2 0'
 })
 
